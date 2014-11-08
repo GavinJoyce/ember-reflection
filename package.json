@@ -1,5 +1,6 @@
 {
   "name": "ember-reflection",
+  "description": "reflect upon Ember objects",
   "version": "0.0.0",
   "directories": {
     "doc": "doc",
@@ -10,11 +11,11 @@
     "build": "ember build",
     "test": "ember test"
   },
-  "repository": "https://github.com/stefanpenner/ember-cli",
+  "repository": "https://github.com/GavinJoyce/ember-reflection",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Gavin Joyce",
   "license": "MIT",
   "devDependencies": {
     "body-parser": "^1.2.0",
