@@ -1,12 +1,12 @@
 import Em from 'ember';
-import getProperties from 'ember-reflection/get-properties';
+import getDefinedProperties from 'ember-reflection/get-defined-properties';
 
 module('getProperties');
 
 test('an empty object has no properties', function() {
   var cat = Em.Object.create();
 
-  equal(getProperties(cat).length, 0);
+  equal(getDefinedProperties(cat).length, 0);
 });
 
 test('an object with one literal property', function() {
@@ -14,7 +14,7 @@ test('an object with one literal property', function() {
     name: 'Sully'
   });
 
-  deepEqual(getProperties(cat), ['name']);
+  deepEqual(getDefinedProperties(cat), ['name']);
 });
 
 test('an object with a computed property', function() {
@@ -23,7 +23,7 @@ test('an object with a computed property', function() {
     nickname: Em.computed.alias('name')
   });
 
-  deepEqual(getProperties(cat), ['name', 'nickname']);
+  deepEqual(getDefinedProperties(cat), ['name', 'nickname']);
 });
 
 test('an object with a class hierarchy', function() {
@@ -41,12 +41,13 @@ test('an object with a class hierarchy', function() {
       return this.get('a').length;
     }.property('a'),
     y: function() { return 2; }
-  })
+  });
+
   var cat = Cat.create({
     d: 'Sully',
     e: Em.computed.alias('d'),
     z: function() { return 3; }
   });
 
-  deepEqual(getProperties(cat), ['d', 'e', 'a', 'c', 'b']);
+  deepEqual(getDefinedProperties(cat), ['d', 'e', 'a', 'c', 'b']);
 });
