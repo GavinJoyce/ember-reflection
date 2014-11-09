@@ -31,9 +31,7 @@
     "express": "^4.8.5",
     "glob": "^4.0.5"
   },
-  "keywords": [
-    "ember-addon"
-  ],
+  "keywords": [],
   "ember-addon": {
     "configPath": "tests/dummy/config"
   }
